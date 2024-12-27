@@ -26,7 +26,7 @@ const app = express();
 
 
 app.use(cors({
-  origin:  'https://setflixstorageaccount1.z1.web.core.windows.net/' ,
+  origin:  'https://setflixstorageaccount1.z1.web.core.windows.net' ,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true
 }));
