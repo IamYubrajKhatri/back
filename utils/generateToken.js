@@ -11,9 +11,10 @@ export const generateTokenAndSetCookie = (userId,res) =>{
   res.cookie("jwt-setflix",token,{
     maxAge:5*60*60*1000, // 1 days in ms
     httpOnly:true,//true cannot be accessed by javascript,false can be accessed
-    sameSite: "lax",//'strict'for only in same origin(port) 'lax' for vross origin
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "None",//'strict'for only in same origin(port) 'lax' for vross origin
     //secure: Env_Vars.NODE_ENV !== "development",//only be sent over https during produvtion so token will not be exposed
-    secure:false//disable secure in development
+   // secure:false//disable secure in development
 
 })
 
