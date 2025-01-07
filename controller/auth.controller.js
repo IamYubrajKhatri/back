@@ -162,7 +162,12 @@ export async function Logout(req,res) {
         user.isLoggedin = false;
         await user.save();
 
-        res.clearCookie("jwt-setflix");
+        res.clearCookie("jwt-setflix", {
+            httpOnly: true,    // ensure it matches the setting when cookie was created
+            sameSite: "None",  // ensure it matches
+            secure: true, // only true in production,
+            path: '/'
+          });
         res.status(200).json({sucess:true, message: "Logged out successfully"});
         
     } catch (error) {

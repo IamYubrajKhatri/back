@@ -13,7 +13,8 @@ export const generateTokenAndSetCookie = (userId,res) =>{
     httpOnly:true,//true cannot be accessed by javascript,false can be accessed
     sameSite: "None",//'strict'for only in same origin(port) 'lax' for vross origin
     //secure: Env_Vars.NODE_ENV !== "development",//only be sent over https during produvtion so token will not be exposed
-    secure:true,//disable secure in development
+    secure:true,//disable secure in development,
+    path: '/'
 
 })
 
